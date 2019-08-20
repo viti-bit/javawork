@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .two {
+            font-size: 40px;
+
+            color: red;
+            font-family: 隶书;
+        }
+
+        a:link {
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: red;
+        }
+
+        #info { /*设置样式让info这个div不可见*/
+            display: none;
+            border: 1px dashed black;
+            width: 200px;
+            height: 30px;
+            text-align: center; /*上下居中*/
+            line-height: 30px;
+            border-radius: 5px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+<script type="text/javascript">
+    //改变几个样式，每条语句改变一个
+    function changeCss() {
+        var p1 = document.getElementById("p1");
+
+    //得到p1对象 //修改大小
+    p1.style.fontSize = "40px";
+
+    //修改颜色
+    p1.style.color = "blue";
+
+    //修改字体
+    p1.style.fontFamily = "楷体";
+
+}
+    //修改类样式名字
+    function changeClass() {
+
+        //得到p2元素
+        var p2 = document.getElementById("p2");
+        p2.className = "two";
+        //设置类名
+    }
+</script>
+<p id="p1"> 我是第一段 </p>
+
+<p id="p2"> 我是第二段 </p>
+<hr>
+<input type="button" value="改变几个样式" onclick="changeCss()">
+<input type="button" value="改变类样式" onclick="changeClass()">
+
+
+<script type="text/javascript">
+    window.onload = function () {
+        //设置鼠标移上和移出事件
+    document.getElementById("cz").onmouseover = function () {
+        //让div可见
+        document.getElementById("info").style.display = "block";
+    }
+    document.getElementById("cz").onmouseout = function () {
+        //让div不可见
+        document.getElementById("info").style.display = "none";
+    }
+
+    }
+</script>
+<br/>
+<a href="http://www.baidu.com" id="cz">点我有惊喜哦！~</a>
+<div id="info">您将要访问百度首页！</div>
+
+<script type="text/javascript">
+    //如果这个函数返回True，表单可以提交，否则不能提交
+    function checkAll() {
+        return true;
+    }
+</script>
+<h1>用户注册</h1>
+<form action="server" method="get" onsubmit="return checkAll()">
+    用户名：
+    <input type="text" name="user"><br>
+    <input type="submit" value="注册">
+</form>
+
+<br/>
+<br/>
+<script type="text/javascript">
+    var date = new Date();
+    document.write("默认样式：" + date + "<br/>");
+    document.write("年份：" + date.getFullYear() + "<br/>");
+    document.write("月份：" + (date.getMonth() + 1) + "<br/>");
+    document.write("周几：" + date.getDay() + "<br/>");
+    document.write("毫秒数：" + date.getTime() + "<br/>");
+    document.write("本地时间：" + date.toLocaleString() + "<br/>");
+</script>
+</body>
+</html>

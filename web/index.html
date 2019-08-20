@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户登录</title>
+    <script>
+        window.onload=function () {
+            //1.获取图片对象
+            var img=document.getElementById("checkCode");
+            var check=document.getElementById("check");
+            //绑定单击事件
+            check.onclick=img.onclick=function () {
+                //加时间戳
+                var date=new Date().getTime();
+                img.src="/checkCodeServlet?"+date;
+            }
+        }
+    </script>
+</head>
+<body>
+        <form action="/demo" method="post">
+            用户名：<input type="text" name="username"><br/>
+            密码：<input type="text" name="password"><br/>
+            <input type="checkbox" name="hobby" value="game">游戏
+            <input type="checkbox" name="hobby" value="study">学习<br/>
+            验证码：<input type="text"/><img id="checkCode" src="/checkCodeServlet"/><a id="check" href="#">看不清换一张?</a><br/>
+            <input type="submit" value="登录">
+        </form>
+</body>
+</html>

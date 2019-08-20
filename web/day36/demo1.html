@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../lib/jquery-3.3.1.min.js"></script>
+    <style>
+        .div1{
+            width: 400px;
+            height: 200px;
+            background-color: coral;
+            text-align: center;
+        }
+        .div2{
+            width: 200px;
+            height: 100px;
+            background-color: cadetblue;
+        }
+    </style>
+</head>
+<body>
+
+
+    <script>
+        $(function () {
+            alert("hello jquery");
+        })
+    </script>
+
+    <div class="div1" id="first">
+        <h1>div1</h1>
+        <div class="div2">div1.1</div>
+    </div>
+    <div class="div1">
+        <h1>div2</h1>
+        <div class="div2">div2.1</div>
+    </div>
+    <div class="div1">
+        <h1>div3</h1>
+        <div class="div2">div3.1</div>
+    </div>
+    <div class="div2">
+        <h1>class just div2</h1>
+    </div>
+    <input type="button" value="交换颜色" id="exchange"><br/>
+    <input type="button" value="改变内部颜色" id="change"><br/>
+    <input type="button" value="根据属性改变颜色" id="change2"><br/>
+    <input type="button" value="改变奇数div颜色" id="change3"><br/>
+    <input type="button" value="改变header颜色" id="change4"><br/>
+    <input type="button" value="获取text" id="change5"><br/>
+    <input type="button" value="获取html" id="change6"><br/>
+
+
+    <script>
+        $("#exchange").click(function () {
+            $(".div1").css("backgroundColor","cadetblue");
+            $(".div2").css("backgroundColor","coral");
+         });
+        $("#change").click(function () {
+            $(".div1 .div2").css("backgroundColor","pink");
+        });
+        $("#change2").click(function () {
+            $("div[id='first']").css("backgroundColor","green");
+        });
+        $("#change3").click(function () {
+            $("div:odd").css("backgroundColor","red");
+        });
+        $("#change4").click(function () {
+            $(":header").css("color","crimson");
+        });
+        $("#change5").click(function () {
+            alert($("#first").text());
+        });
+        $("#change6").click(function () {
+            alert($("#first").html());
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        td {/*设置内边距*/
+            padding: 5px;
+        }
+        table { /*边框设置为细线模式*/
+            border-collapse: collapse;
+        }
+        td:hover {
+            background-color: yellow;
+        }
+    </style>
+    <script>
+        function judgesc () {
+            var sc = document.getElementsByName("score")[0].value;
+            var s=parseInt(sc);
+            if(s!=null){
+                if(s>=90){
+                    document.write("<h1>优秀</h1>")
+                    alert("优秀");
+                }else if(s>=80 ){
+                    document.write("<h1>良好</h1>")
+                }else if(s>=60 ){
+                    document.write("<h1>及格</h1>")
+                }else if(s>=0){
+                    document.write("<h1>不及格</h1>")
+                }else{
+                    document.write("<h1>分数有误</h1>")
+
+                }
+            }
+        }
+
+    </script>
+</head>
+<body>
+<script>
+    for (var i = 0; i < 5; i++) {
+        document.writeln("<h1>hello</h1>");
+    }
+    var num1="1.4";
+    var num2="1.6";
+    document.write(isNaN(num1)+"<br/>");
+    document.write("parseInt('1.4')"+parseInt(num1)+"  <br/>");
+    document.write("parseFloat('1.4')"+parseFloat(num1)+"   <br/>");
+</script>
+<input type="text" name="score" placeholder="请输入你的分数" onchange="judgesc()"/>
+
+<script type="text/javascript"> //用户输入数字, num是一个字符串类型
+    var num = window.prompt("请输入乘法表行数：", "9");
+    document.write("<h3>" + num + "&times;" + num + "乘法表</h3>");
+    //创建一个表格
+    document.write("<table border='1'>");
+    // 循环嵌套，每个循环是一行
+    for (var i=1; i<=num; i++) {
+        document.write("<tr>");
+        for (var j=1; j<=i; j++) {
+            //每次输出一列
+            document.write("<td>");
+            document.write(j + "&times;" + i + "=" + (i * j ));
+            //每次输出一个空格
+            document.write("</td>");
+        }
+        //换行
+        document.write("</tr>");
+    }
+    document.write("</table>");
+</script>
+<img id="pic" src="../imge/1.jpg" style="width: 300px;height: 300px">
+<script>
+    window.setInterval("changepic()",3000);
+    var num=2;
+    function changepic() {
+        var pic=document.getElementById("pic");
+        pic.src="../imge/"+num+".jpg";
+        num++;
+        if(num==5){
+            num=0;
+        }
+    }
+</script>
+
+</body>
+</html>

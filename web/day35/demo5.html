@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input type="text" id="txt">
+    <input type="button" id="btn" value="创建">
+    <hr>
+    <ul id="uid"> </ul>
+    <script>
+        var uObj=document.getElementById("uid");
+        document.getElementById("btn").onclick=function (ev) {
+            var liObj=document.createElement("li");
+
+            liObj.innerHTML=document.getElementById("txt").value;
+            uObj.appendChild(liObj);
+        }
+    </script>
+</body>
+</html>

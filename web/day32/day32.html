@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>day32</title>
+    <style>
+        *{
+            font-family: "\5FAE\8F6F\96C5\9ED1";
+            padding: 0;
+            margin: 0;
+            font-size: 18px;
+            text-align: center;
+        }
+        .div1{
+            width: 200px;
+            height: 150px;
+            background-color: antiquewhite;
+        }
+        #div2{
+            width: 200px;
+            height: 150px;
+            background-color: aquamarine;
+        }
+        .a1{
+            line-height: 20px;
+            color: rgba(100,100,100,0.9);
+        }
+        .a1 :hover{
+            background-color: cyan;
+            color: crimson;
+        }
+        li:first-child{
+            color: dodgerblue;
+        }
+        li:last-child{
+            color:coral ;
+        }
+        li:nth-child(2){
+            color: darkgreen;
+        }
+      body{
+            background-image: url(../imge/bg.jpg);
+          background-repeat: no-repeat;
+          background-size: 100% 100%;
+          background-attachment: fixed;
+        }
+        .bg{
+            width: 200px;
+            height: 200px;
+            text-align: center;
+            margin: 10px auto;
+            padding: 50px;
+            position: relative;
+            border: 1px solid aquamarine;
+            box-sizing: border-box;
+            background-color: darkgreen;
+        }
+        .big{
+            width: 400px;
+            height: 400px;
+            margin: 20px;
+            padding: 40px;
+            background-color: coral;
+        }
+    </style>
+</head>
+<body>
+    <div class="div1">div1</div>
+    <div id="div2">div2</div>
+    <div>div3</div>
+    <a class="a1" href="https://www.baidu.com">百度一下</a>
+    <ul>
+        <li>first</li>
+        <li>second</li>
+        <li>last</li>
+    </ul>
+    <div class="big"><div class="bg"></div></div>
+
+</body>
+</html>

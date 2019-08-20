@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../lib/jquery-3.3.1.min.js"></script>
+    <script>
+        $(function () {
+            $("tr:even").css("backgroundColor","rgb(132, 190, 110)");
+            $("tr:odd").css("backgroundColor","rgb(255, 231, 147)");
+            $("#revers").click(function () {
+                $(".check").click();
+            });
+            $(".check").click(function () {
+                if($(".check:checked").length==$(".check").length){
+                    $("#selectAll").prop("checked",true);
+                }else{
+                    $("#selectAll").prop("checked",false);
+                }
+            });
+        })
+    </script>
+</head>
+<body>
+    <div style="text-align: left;width: 500px;margin:0 auto" >
+        <input type="button" value="反选" id="revers">
+        <table id="table" border="1" width="500" cellspacing="0" style="margin:0 auto">
+            <tr>
+                <th><input type="checkbox" id="selectAll"></th>
+                <th>编号</th>
+                <th>姓名</th>
+                <th>年龄</th>
+            </tr>
+            <tr>
+                <td><input type="checkbox" class="check"></td>
+                <td>1</td>
+                <td>张三</td>
+                <td>18</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" class="check"></td>
+                <td>1</td>
+                <td>张三</td>
+                <td>18</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" class="check"></td>
+                <td>1</td>
+                <td>张三</td>
+                <td>18</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" class="check"></td>
+                <td>1</td>
+                <td>张三</td>
+                <td>18</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" class="check"></td>
+                <td>1</td>
+                <td>张三</td>
+                <td>9</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

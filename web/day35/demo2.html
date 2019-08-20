@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<span id="time">5</span>秒后回到主页
+<script type="text/javascript">
+    //创建一个用于计数的全局变量
+    var count = 4;
+    //每过1秒调用一次函数
+    window.setInterval(function(){
+        //修改time中数字
+        document.getElementById("time").innerHTML = count;
+        //如果等于1，进行页面的跳转
+        if (count == 0) {
+            location.href = "http://www.baidu.cn";
+        }
+        //减一
+        count --;
+        }, 1000);
+</script>
+</body>
+</html>

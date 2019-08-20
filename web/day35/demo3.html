@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    //得到当前访问地址
+    document.write(location.href + "<br/>");
+    //设置属性值，页面进行跳转
+    location.href = "http://www.baidu.cn";
+    //输出时间
+    document.write(new Date().toLocaleString() + "<br/>");
+</script>
+<input type="button" onclick="location.reload()" value="刷新"/>
+
+<input type="button" onclick="history.forward()" value="前进"/>
+<input type="button" value="后退" onclick="history.back()"/>
+
+</body>
+</html>

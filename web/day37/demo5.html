@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../lib/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+        /** jquery的插件机制，就是如何扩展jq
+         * * 1.$.fn.extend(js对象)
+         * 对jQuery对象进行方法扩展 2.$.extend(js对象)
+         * 对jQuery全局进行方法扩展
+         * * */
+        //对jq对象扩展
+        $.fn.extend({
+            //扩展check方法，让jq对象的checked属性处于选中状态
+            check:function () {
+                //对jq对象扩展，this就是当前jq对象（只有这里的this是jq对象，其他地方的this都是js对象）
+                this.prop("checked",true);
+                },
+        //扩展uncheck方法，让jq对象的checked属性处于不选中状态
+            uncheck:function () {
+                this.prop("checked",false);
+            } });
+        //选中事件
+        function checkFn() {
+            //获取所有复选框操作checked属性为true
+            $("input:checkbox").prop("checked",true);
+            //jq框架原有代码实现
+            // 新要求：扩展jq对象实现check方法，让jq对象处于选中状态，代码如下
+            $("input:checkbox").check();
+        }
+        //不选中事件
+        function uncheckFn() {
+            //获取所有复选框操作checked属性为false
+            $("input:checkbox").prop("checked",false);
+            //jq框架原有代码实现
+            // 新要求：扩展jq对象实现uncheck方法，让jq对象处于不选中状态，代码如下
+            $("input:checkbox").uncheck();
+
+        }
+        $.extend({
+            min:function (a,b) {
+                return a<b?a:b;
+                },
+            max:function (a,b) {
+                return a>b?a:b;
+            }
+        });
+        var min = $.min(1,2);
+        alert("1和2的最小值为："+min);
+        var max = $.max(2,3);
+        alert("2和3的最大值为："+max);
+    </script>
+</head>
+<body>
+    <input id="btn-check" type="button" value="点击选中复选框" onclick="checkFn()">
+    <input id="btn-uncheck" type="button" value="点击取消复选框选中" onclick="uncheckFn()"> <br/>
+    <input type="checkbox" value="football">足球
+    <input type="checkbox" value="basketball">篮球
+    <input type="checkbox" value="volleyball">排球
+</body>
+</html>

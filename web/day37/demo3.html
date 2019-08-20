@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../lib/jquery-3.3.1.min.js"></script>
+    <style>
+        #canvas {
+            width: 300px;
+            height: 300px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="绑定事件" id="btn">
+    <script>
+
+        $("#btn").on({
+            "click":function () {
+                console.log("点击事件绑定成功啦")
+            },
+            "mouseover":function () {
+                $(this).css("backgroundColor","red");
+            }
+        })
+    </script>
+    <script>
+        //事件名方式
+        $(function () {
+            // $("#myDiv").mouseover(function () {
+            //     $(this).css("backgroundColor", "green")
+            // });
+            // $("#myDiv").mouseout(function () {
+            //     $(this).css("backgroundColor", "orange")
+            // });
+            //以on的方式
+            $("#myDiv").on({
+                mouseover:function () {
+                    $(this).css("backgroundColor", "green");
+                },
+                mouseout:function () {
+                    $(this).css("backgroundColor", "orange");
+                }
+            })
+        })
+
+    </script>
+    <br/>
+    <input type="text" placeholder="请输入事件名" id="eventName">
+    <input type="button" value="绑定事件" id="banding">
+    <input type="button" value="解除事件" id="relive"> <br/>
+    <div id="canvas"> </div> <br/>
+    <script>
+        $("#banding").click(function () {
+            var eventName = $("#eventName").val();
+            $("#canvas").on(eventName, function () {
+                var colors = ['red', 'orange', 'yellow', 'green', 'cyan', 'blue', 'purple'];
+                var num = Math.random();
+                if (num != 1) {
+                    num = parseInt(num * colors.length);
+                }
+                $("#canvas").css("backgroundColor", colors[num]);
+            });
+        });
+        $("#relive").click(function () {
+            var eventName = $("#eventName").val();
+            $("#canvas").off(eventName);
+        });
+    </script> <br/>
+    <div id="myDiv" style="width: 300px;height: 300px;background-color: coral">
+        鼠标移入变成绿色，移出恢复橙色
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>姓名:</h3><input type="text" id="t1"><br/>
+<h3>姓名:</h3><input type="text" id="t2"><br/>
+<input type="button" value="单击复制/双击清除" id="b1">
+<script>
+    document.getElementById("b1").onclick = function () {
+        document.getElementById("t2").value = document.getElementById("t1").value;
+    }
+    document.getElementById("b1").ondblclick = function () {
+        document.getElementById("t1").value = "";
+        document.getElementById("t2").value = "";
+    }
+</script>
+<br/>
+城市：<select id="city">
+    <option value="广州">广州</option>
+    <option value="深圳">深圳</option>
+    <option value="珠海">珠海</option>
+</select>
+<hr><br/>
+    英文：<input type="text" id="user">
+    <hr>
+    <h2 id="key"></h2>
+    <script type="text/javascript"> //改变事件
+    document.getElementById("city").onchange = function () {
+        alert(this.value); //this是select对象
+    }
+    //文本框改变事件
+    document.getElementById("user").onchange = function () { //变成大写
+        this.value = this.value.toUpperCase();
+    }
+    //使用松开按键事件
+    document.getElementById("user").onkeyup = function () { //变成大写
+        this.value = this.value.toUpperCase();
+    }
+    //按下键，在h2中显示按下键键盘码，传入一个对象，通过这个对象keyCode属性得到按键编码
+    document.getElementById("user").onkeydown = function (event) {
+        document.getElementById("key").innerHTML = event.keyCode;
+    }
+    </script>
+<script type="text/javascript">
+    var a1 = [1,5,8]; var a2 = [5,3,2];
+    var a3 = a1.concat(a2);
+    //把a1和a2拼接成一个数组
+    document.write(a3 + "<hr/>");
+    //把a3反转
+    a3.reverse(); document.write(a3 + "<br/>");
+    //拼接成一个字符串
+    var str = a3.join("^_^");
+    document.write(str + "<br/>");
+    document.write("<hr/>");
+    // 给字符串数组排序
+    var arr = ['jack','Rose',"Tom","Jerry","Kate"];
+    document.write("排序前：" + arr + "<br/>");
+    arr.sort();
+    document.write("排序后：" + arr + "<br/>");
+    // 数字排序
+    var arr = [30,26,6,110,1234];
+    document.write("排序前：" + arr + "<br/>");
+    //默认按字符串排序
+    arr.sort();
+    document.write("排序后：" + arr + "<br/>"); //如果使用数字进行排序，必须指定比较器
+     arr.sort(function (a, b) {
+         return b-a;
+     });
+     document.write("排序后：" + arr + "<br/>");
+</script>
+</body>
+</html>

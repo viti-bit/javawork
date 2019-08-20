@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="myDiv">
+    <span>
+        <a href="#">我是链接</a>
+    </span>
+</div>
+<hr/>
+<!--innerHTML和innerText区别-->
+<input type="button" id="b1" value="得到HTML">
+<input type="button" id="b2" value="设置HTML">
+<input type="button" id="b3" value="得到Text">
+<input type="button" id="b4" value="设置Text">
+<script type="text/javascript">
+    //得到HTML
+    document.getElementById("b1").onclick = function () {
+        alert(document.getElementById("myDiv").innerHTML);
+    }
+    //设置HTML
+    document.getElementById("b2").onclick = function () {
+        document.getElementById("myDiv").innerHTML = "<h2 style='color: red'>我是标题</h2>"
+    }
+    //得到Text
+    document.getElementById("b3").onclick = function () {
+        alert(document.getElementById("myDiv").innerText);
+    }//设置text
+     document.getElementById("b4").onclick = function () {
+        document.getElementById("myDiv").innerText = "<h2 style='color: red'>我是标题</h2>"
+    }
+</script>
+
+<br/>
+<br/>
+<input type="button" value="删除" id="del">
+<script type="text/javascript">
+    document.getElementById("del").onclick = function () {
+        //如果为真，表示点确认
+        if (window.confirm("真的要删除吗?")) {
+            alert("已经成功删除");
+        }else {
+            alert("取消删除");
+        }
+    }
+</script>
+<br/>
+<br/>
+    <input type="button" value="(通过标签名)给a链接添加地址" id="a2"/>
+    <input type="button" value="(通过name属性)给div设值" id="a3"/>
+    <input type="button" value="(通过类名)给div设值" id="a4"/>
+    <hr/>
+    <a>京东</a><br/>
+    <a>京东</a><br/>
+    <a>京东</a><br/>
+    <hr/>
+    <div name="one"></div>
+<div name="one">
+
+</div>
+<div name="one"></div>
+<hr/>
+<div class="two"></div>
+<div class="two"></div>
+<div class="two"></div>
+<script type="text/javascript">
+    //点b2按钮设置a标签的href属性
+    document.getElementById("a2").onclick = function () {
+        //通过标签的名字得到所有的a标签
+        var arr = document.getElementsByTagName("a");
+        //循环得到每个元素
+        for (var i = 0; i < arr.length; i++) {
+            //添加href属性
+            arr[i].href = "http://www.jd.com";
+        }
+    }
+    document.getElementById("a3").onclick = function () {
+        //通过name得到一组元素
+        var arr = document.getElementsByName("one");
+        //相当于forEach功能，obj表示每个元素
+        for (var obj of arr) {
+            obj.innerHTML = "<a href='http://www.baidu.com'>百度</a>";
+        }
+    }
+    document.getElementById("b4").onclick = function () {
+        //通过类名得到一组元素
+        var arr = document.getElementsByClassName("two");
+        for (var i = 0; i < arr.length; i++) {
+            arr[i].innerHTML = "<a href='http://www.baidu.com'>百度</a>";
+        }
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../lib/jquery-3.3.1.min.js"></script>
+    <style>
+        .div1{
+            width: 100px;
+            height: 50px;
+            background-color: cadetblue;
+        }
+        .div2{
+            width: 100px;
+            height: 100px;
+            background-color:chocolate;
+        }
+    </style>
+</head>
+<body>
+    <input type="checkbox" id="check" value="demo">
+    <input type="button" id="b1" value="按钮"><br/>
+    <div > div </div>
+    <input type="button" id="b2" value="给div添加样式"><br/>
+    <input type="button" id="b3" value="给div切换样式"><br/>
+    <input type="button" id="b4" value="给div清除样式"><br/>
+
+    <script>
+        $("#b1").click(function () {
+            alert("demo的type："+$("#check").attr("type"));
+            $("#check").prop("checked",true)
+        });
+        $("#b2").click(function () {
+            $("div").addClass("div1");
+        });
+        $("#b3").click(function () {
+            $("div").toggleClass("div2");
+        });
+        $("#b4").click(function () {
+            $("div").removeClass();
+        });
+    </script>
+
+    <ul id="city">
+        城市：
+        <li id="bj">北京</li>
+        <li id="tj">天津</li>
+        <li id="sh">上海</li>
+        <li id="cq">重庆</li>
+    </ul>
+    <input type="button" value="添加到末尾" id="add"><br/>
+    <input type="button" value="添加到重庆前" id="add1"><br/>
+    <input type="button" value="清空城市列表" id="del1"><br/>
+    <input type="button" value="删除城市列表" id="del2"><br/>
+
+    <script>
+        $("#add").click(function () {
+            $("#city").append($("<li>成都</li>"));
+        });
+        $("#add1").click(function () {
+            $("#cq").before($("<li>成都</li>"));
+        });
+        $("#del1").click(function () {
+            $("#city").empty();
+        });
+        $("#del2").click(function () {
+            $("#city").remove();
+        });
+    </script>
+</body>
+</html>
